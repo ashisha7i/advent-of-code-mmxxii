@@ -42,8 +42,6 @@ public class Puzzle02
                     .limit(3)
                     .collect(Collectors.toList());
 
-        
-
         Integer sumOfTopThree = topThreeEntries.stream()
             .mapToInt(e -> e.getValue())
             .reduce(0, (a, b) -> a + b);

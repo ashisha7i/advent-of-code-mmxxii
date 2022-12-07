@@ -1,6 +1,5 @@
 package com.adventofcode.vini.day01;
 
-import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
