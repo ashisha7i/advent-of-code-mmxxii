@@ -5,21 +5,26 @@ import java.util.List;
 import java.util.Set;
 import com.adventofcode.vini.util.FileReader;
 
-public class Puzzle01 {
+public class Puzzle02 {
     
     public static void main(String[] args) {
         List<String> allLines = FileReader.allLines("day03/input.txt");
         Integer prioritiesSum = 0;
 
-        for(String line: allLines) {
-            int length = line.length();
-            String compartment1 = line.substring(0, length/2);
-            String compartment2 = line.substring(length / 2);
+
+
+        for(int i=0; i < allLines.size(); i+=3) {
             
-            Set<Character> setA = convertToSet(compartment1);
-            Set<Character> setB = convertToSet(compartment2);
+            String elf1Sack = allLines.get(i);
+            String elf2Sack = allLines.get(i + 1);
+            String elf3Sack = allLines.get(i + 2);
+            
+            Set<Character> setA = convertToSet(elf1Sack);
+            Set<Character> setB = convertToSet(elf2Sack);
+            Set<Character> setC = convertToSet(elf3Sack);
 
             setA.retainAll(setB);
+            setA.retainAll(setC);
 
             System.out.println(setA);
 
