@@ -3,7 +3,9 @@ package com.adventofcode.vini.day04;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import com.adventofcode.vini.util.FileReader;
 
@@ -12,7 +14,8 @@ public class Puzzle01 {
         List<String> allLines = FileReader.allLines("day04/input.txt");
         System.out.println(allLines);
 
-        int count = 0;
+        int fullOverlapCount = 0;
+        int partialOverlapCount = 0;
 
         for(String line: allLines) {
             String firstPair = line.split(",")[0];
@@ -48,19 +51,39 @@ public class Puzzle01 {
                 }
             }
 
-            if(doesOverlap(outerList, innerList)) {
-                count++;
+            if(isFullOverlap(outerList, innerList)) {
+                fullOverlapCount++;
             }
 
-            System.out.printf("%-12s   %-12s    %s", firstPair, secondPair, doesOverlap(outerList, innerList));
+            if(isOverlap(outerList, innerList)) {
+                partialOverlapCount++;
+            }
+
+            System.out.printf("%-12s   %-12s    %-6s    %s", firstPair, secondPair, isFullOverlap(outerList, innerList), isOverlap(outerList, innerList));
             System.out.println("");
             
         }
 
-        System.out.println(count);
+        System.out.println(fullOverlapCount);
+        System.out.println(partialOverlapCount);
     }
 
-    private static boolean doesOverlap(List<Integer> outerList, List<Integer> innerList) {
+    private static boolean isFullOverlap(List<Integer> outerList, List<Integer> innerList) {
         return outerList.containsAll(innerList);
+    }
+
+    private static boolean isOverlap(List<Integer> outerList, List<Integer> innerList) {
+        Map<Integer, Integer> map = new HashMap<>();
+        for(Integer i: outerList) {
+            map.put(i, i);
+        }
+
+        for(Integer j: innerList) {
+            if(map.get(j) != null) {
+                return true;
+            }
+        }
+
+        return false;
     }
 }
