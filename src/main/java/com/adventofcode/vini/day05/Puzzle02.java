@@ -1,6 +1,5 @@
 package com.adventofcode.vini.day05;
 
-import java.io.File;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -8,7 +7,7 @@ import java.util.Stack;
 
 import com.adventofcode.vini.util.FileReader;
 
-public class Puzzle01 {
+public class Puzzle02 {
 
     private static Stack<Character> stack1 = new Stack<>();
     private static Stack<Character> stack2 = new Stack<>();
@@ -79,9 +78,15 @@ public class Puzzle01 {
         Stack<Character> stackFrom = stackMap.get(instruction.getStackFrom());
         Stack<Character> stackTo   = stackMap.get(instruction.getStackTo());
         
+        Stack<Character> tempStack = new Stack<>();
+
         for(int i=0; i<instruction.getStackCount(); i++) {
             Character temp = stackFrom.pop();
-            stackTo.push(temp);
+            tempStack.push(temp);
+        }
+
+        while(!tempStack.empty()) {
+            stackTo.push(tempStack.pop());
         }
 
     }
@@ -98,3 +103,4 @@ public class Puzzle01 {
 
 
 }
+
