@@ -17,7 +17,7 @@ public class Puzzle02
 {
     public static void main( String[] args )
     {
-        List<String> allLines = FileReader.allLines("day01/input.txt");
+        List<String> allLines = FileReader.allLines("day01_input.txt");
         
         int elfNumber = 1;
         Stack<Integer> stack = new Stack<>();

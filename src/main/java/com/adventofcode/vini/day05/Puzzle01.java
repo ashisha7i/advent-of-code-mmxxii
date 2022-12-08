@@ -1,6 +1,5 @@
 package com.adventofcode.vini.day05;
 
-import java.io.File;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -46,7 +45,7 @@ public class Puzzle01 {
     }
 
     public static void main(String[] args) {
-        List<String> allLines = FileReader.allLinesFrom("day05/input.txt", 11);
+        List<String> allLines = FileReader.allLinesFrom("day05_input.txt", 11);
 
         for(String command: allLines) {
             Instruction instruction = getInstructionFromCommand(command);

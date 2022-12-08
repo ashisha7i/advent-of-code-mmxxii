@@ -45,7 +45,7 @@ public class Puzzle02 {
     }
 
     public static void main(String[] args) {
-        List<String> allLines = FileReader.allLinesFrom("day05/input.txt", 11);
+        List<String> allLines = FileReader.allLinesFrom("day05_input.txt", 11);
 
         for(String command: allLines) {
             Instruction instruction = getInstructionFromCommand(command);

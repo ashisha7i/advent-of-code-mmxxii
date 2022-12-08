@@ -8,7 +8,7 @@ import com.adventofcode.vini.util.FileReader;
 public class Puzzle02 {
     
     public static void main(String[] args) {
-        List<String> allLines = FileReader.allLines("day03/input.txt");
+        List<String> allLines = FileReader.allLines("day03_input.txt");
         Integer prioritiesSum = 0;
 
 

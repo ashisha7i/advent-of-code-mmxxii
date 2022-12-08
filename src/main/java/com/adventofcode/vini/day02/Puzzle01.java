@@ -9,7 +9,7 @@ import com.adventofcode.vini.util.FileReader;
 
 public class Puzzle01 {
     public static void main(String[] args) {
-        List<String> allLines = FileReader.allLines("day02/input.txt");
+        List<String> allLines = FileReader.allLines("day02_input.txt");
         
         int totalScore = 0;
         
